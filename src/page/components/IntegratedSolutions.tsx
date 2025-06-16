@@ -4,15 +4,15 @@ import { motion } from "framer-motion";
 const IntegratedSolutions: React.FC = () => {
   const processSteps = [
     {
-      image: "/src/assets/scan-qr.jpg",
+      image: "/public/scan-qr.jpg",
       description: "Scan the QR code.",
     },
     {
-      image: "/src/assets/fill-details.jpg",
+      image: "/public/fill-details.jpg",
       description: "Enter the details.",
     },
     {
-      image: "/src/assets/reception.png",
+      image: "/public/reception.png",
       description: "Room Booked seamlessly.",
     },
   ];
