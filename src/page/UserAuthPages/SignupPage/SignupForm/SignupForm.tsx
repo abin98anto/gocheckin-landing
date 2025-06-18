@@ -71,16 +71,6 @@ const SignupForm = () => {
         </div>
 
         <div className="flex justify-between items-center">
-          <Select defaultValue="en-us">
-            <SelectTrigger className="w-40 border-0 bg-transparent text-sm text-slate-600">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="en-us">English (United States)</SelectItem>
-              <SelectItem value="es">Español</SelectItem>
-              <SelectItem value="fr">Français</SelectItem>
-            </SelectContent>
-          </Select>
           <Button
             variant="outline"
             className="bg-slate-900 text-white hover:bg-slate-800 border-slate-900"
@@ -138,7 +128,7 @@ const SignupForm = () => {
               <div className="flex mt-1">
                 <Select
                   value={formData.countryCode}
-                  onValueChange={(value) =>
+                  onValueChange={(value: string | boolean) =>
                     handleInputChange("countryCode", value)
                   }
                 >
@@ -277,7 +267,7 @@ const SignupForm = () => {
               <Checkbox
                 id="terms"
                 checked={formData.agreeToTerms}
-                onCheckedChange={(checked) =>
+                onCheckedChange={(checked: boolean) =>
                   handleInputChange("agreeToTerms", checked as boolean)
                 }
                 className="mt-1"
