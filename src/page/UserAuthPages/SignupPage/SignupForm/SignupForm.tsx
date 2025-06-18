@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/select";
 import { Eye, EyeOff } from "lucide-react";
 import { toast } from "sonner";
+import LoginModal from "../LoginModal/LoginModal";
 
 const SignupForm = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -31,6 +32,7 @@ const SignupForm = () => {
     zipCode: "",
     agreeToTerms: false,
   });
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
   const handleInputChange = (field: string, value: string | boolean) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
@@ -60,8 +62,12 @@ const SignupForm = () => {
     console.log("Form submitted:", formData);
   };
 
+  const handleLoginNavigation = () => {
+    setIsLoginModalOpen(true);
+  };
+
   return (
-    <div className="flex-1 flex items-center justify-center px-6 py-12 lg:px-8">
+    <div className="flex-1 bg-gray-200 flex items-center justify-center px-6 py-12 lg:px-8">
       <div className="w-full max-w-md space-y-6">
         <div className="lg:hidden text-center mb-8">
           <h1 className="text-3xl font-bold text-slate-900 mb-2">
@@ -70,21 +76,10 @@ const SignupForm = () => {
           <p className="text-slate-600">Create your account to get started</p>
         </div>
 
-        <div className="flex justify-between items-center">
-          <Button
-            variant="outline"
-            className="bg-slate-900 text-white hover:bg-slate-800 border-slate-900"
-          >
-            Log in
-          </Button>
-        </div>
+        <h1 className="text-center font-bold text-3xl mb-6">Go CheckIn</h1>
 
-        <div>
-          <h2 className="text-2xl font-semibold text-slate-900 mb-6">
-            Sign up now
-          </h2>
-
-          <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="align-center">
+          <div className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <Label htmlFor="fullName">Full Name</Label>
@@ -136,6 +131,7 @@ const SignupForm = () => {
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
+                    <SelectItem value="+1">+91</SelectItem>
                     <SelectItem value="+1">+1</SelectItem>
                     <SelectItem value="+44">+44</SelectItem>
                     <SelectItem value="+33">+33</SelectItem>
@@ -285,14 +281,32 @@ const SignupForm = () => {
             </div>
 
             <Button
-              type="submit"
+              type="button"
+              onClick={handleSubmit}
               className="w-full bg-slate-900 hover:bg-slate-800 text-white py-3 mt-6 transition-colors duration-200"
             >
               Create Account
             </Button>
-          </form>
+          </div>
+
+          <div className="text-center mt-6">
+            <p>
+              Already have an account?{" "}
+              <span
+                className="text-blue-600 cursor-pointer hover:underline"
+                onClick={handleLoginNavigation}
+              >
+                Login
+              </span>
+            </p>
+          </div>
         </div>
       </div>
+
+      <LoginModal
+        isOpen={isLoginModalOpen}
+        onClose={() => setIsLoginModalOpen(false)}
+      />
     </div>
   );
 };
