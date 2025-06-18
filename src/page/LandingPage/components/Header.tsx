@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -70,12 +72,13 @@ const Header: React.FC = () => {
               Contact Us
             </motion.button>
             <motion.button
-              className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2.5 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              className="cursor-pointer bg-blue-500 hover:bg-blue-600 text-white px-6 py-2.5 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
               whileHover={{
                 boxShadow: "0 10px 25px -5px rgba(99, 102, 241, 0.4)",
                 y: -2,
               }}
               whileTap={{ scale: 0.98 }}
+              onClick={() => navigate("/signup")}
             >
               Sign In
             </motion.button>
