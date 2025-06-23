@@ -4,7 +4,7 @@ import HeroSection from "./components/HeroSection";
 import TrustedBrands from "./components/TrustedBrands";
 import FeaturesOverview from "./components/FeaturesOverview";
 import IntegratedSolutions from "./components/IntegratedSolutions";
-import SuccessStories from "./components/SuccessStories";
+// import SuccessStories from "./components/SuccessStories";
 import Footer from "./components/Footer";
 
 const LandingPage: React.FC = () => {
@@ -16,7 +16,7 @@ const LandingPage: React.FC = () => {
         <TrustedBrands />
         <FeaturesOverview />
         <IntegratedSolutions />
-        <SuccessStories />
+        {/* <SuccessStories /> */}
       </main>
       <Footer />
     </div>
