@@ -28,9 +28,13 @@ const HeroSection: React.FC = () => {
               transition={{ type: "spring", stiffness: 300 }}
             >
               {/* Video */}
-              <img
+              <video
                 className="absolute inset-0 w-full h-full object-cover"
-                src="https://framerusercontent.com/images/nEPENyrdQU1C7I1s4giSzNgZ6uw.png?scale-down-to=1024"
+                src="/hero_section_video.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
               />
 
               {/* Gradient Overlay */}
