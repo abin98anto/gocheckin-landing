@@ -30,7 +30,7 @@ const HeroSection: React.FC = () => {
               {/* Video */}
               <video
                 className="absolute inset-0 w-full h-full object-cover"
-                src="/hero_section_video.mp4"
+                src="/hero_section_video_c.mp4"
                 autoPlay
                 muted
                 loop
